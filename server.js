@@ -6,6 +6,12 @@ const compression = require("compression");
 const PORT = process.env.PORT || 3001;
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/budget";
 
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/budget-tracker', {
+  useFindAndModify: false,
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
 const app = express();
 
 app.use(logger("dev"));
