@@ -4,7 +4,13 @@ const mongoose = require("mongoose");
 const compression = require("compression");
 
 const PORT = process.env.PORT || 3001;
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/budget";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/budget-tracker";//might be budget (budget-tracker is DB and pwa is collection)
+
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/budget-tracker', {
+  useFindAndModify: false,
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 const app = express();
 
