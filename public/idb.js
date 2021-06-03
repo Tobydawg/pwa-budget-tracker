@@ -1,7 +1,7 @@
   // create variable to hold db connection
 let db;
 // establish a connection to IndexedDB database called 'budget-tracker' and set it to version 1
-const request = indexedDB.open("budget_tracker", 1);
+const request = indexedDB.open("budget-tracker", 1);
 
 // this event will emit if the database version changes (nonexistant to version 1, v1 to v2, etc.)
 request.onupgradeneeded = function (event) {
@@ -19,7 +19,7 @@ request.onsuccess = function (event) {
   // check if app is online, if yes run uploadBudget() function to send all local db data to api
   if (navigator.onLine) {
     // we haven't created this yet, but we will soon, so let's comment it out for now
-    // un-comment out?
+    
     uploadBudget();
   }
 };
